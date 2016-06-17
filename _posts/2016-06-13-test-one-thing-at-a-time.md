@@ -72,4 +72,13 @@ describe('myFunkyAdd', function() {
 });
 ```
 
-Now our `it` isn't quite right, though. We're testing that `myFunkyAdd` works correctly **when we use it with `myFunkyPush`**. In this test we can't be sure what happens when we use it without `myFunkyPush`. We shouldn't change our `myFunkyAdd` (but we should add a new test that only looks at `myFunkyPush).
+Now our `it` isn't quite right, though. We're testing that `myFunkyAdd` works correctly **when we use it with `myFunkyPush`**. In this test we can't be sure what happens when we use it without `myFunkyPush`. We shouldn't change our `myFunkyAdd`. We should add a new test that only looks at `myFunkyPush`), something like this:
+
+```javascript
+describe('myFunkyPush', function() {
+  it('should push two parameters into an array', function () {
+    var expectedResult = [3, 4];
+    assert.equal(expectedResult, myFunkyPush(3, 4));
+  });
+});
+```
